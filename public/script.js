@@ -167,6 +167,8 @@
             }
         });
 
+
+        
         window.addEventListener('resize', () => {
             const newSlidesToShow = window.innerWidth > 768 ? 3 : 1;
             if (newSlidesToShow !== certSlidesToShow) {
@@ -176,3 +178,18 @@
                 updateCertCarousel();
             }
         });
+        // ...kode kamu yang terakhir
+
+// Smooth scroll tanpa menampilkan hash di URL
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', function(e) {
+        const target = document.querySelector(this.getAttribute('href'));
+
+        if (target) {
+            e.preventDefault();
+            target.scrollIntoView({ behavior: 'smooth' });
+            history.replaceState(null, "", window.location.pathname);
+        }
+    });
+});
+
