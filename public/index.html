@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio - Gigih Lanang</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+   
+</head>
+<body>
+    <!-- Navbar -->
+    <nav>
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="logo">
+            <span class="white">Lanang</span><span class="red">Dev</span>
+        </div>
+        <ul class="nav-menu">
+            <li><a href="#beranda" class="active">Beranda</a></li>
+            <li><a href="#tentang-saya">Tentang Saya</a></li>
+            <li><a href="#keahlian">Keahlian</a></li>
+            <li><a href="#projek">Proyek</a></li>
+            <li><a href="#sertifikat">Sertifikat</a></li>
+            <li><a href="#kontak-saya">Kontak Saya</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+<section id="beranda" class="hero">
+    <div class="hero-container">
+        <div class="hero-content">
+            
+            <!-- FETCHED -->
+            <h3 id="hero-headline">Loading...</h3>
+            <h1>I'm a <span class="typing"></span></h1>
+            <p id="hero-description">Loading...</p>
+            
+            <div class="cta-buttons">
+                <a href="#" class="btn btn-secondary">Lihat Portfolio</a>
+                <a href="#kontak-saya" class="btn">Hubungi Saya</a>
+            </div>
+            
+            <div class="social-icons">
+                <a href="https://www.github.com/LanangGigih" title="GitHub"><i class="fab fa-github"></i></a>
+                <a href="" title="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/in/gigih-lanang" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            </div> 
+        </div>
+
+        <div class="hero-image">
+            <div class="profile-circle">
+                <div class="glow-ring"></div>
+
+                <!-- FETCHED -->
+                <img id="hero-image" src="assets/fallback.jpg" alt="Profile" class="profile-img">
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    <!-- About Section -->
+<section id="tentang-saya" class="about">
+    <div class="about-container">
+        <h2>Tentang Saya</h2>
+        <div class="about-content">
+            <div class="about-photo">
+                <img src="" alt="Foto Profil"> <!-- akan diisi dari Supabase -->
+            </div>
+
+            <div class="about-text">
+                <h3>Hello, I'm ...</h3>
+
+                <p></p>  <!-- description1 -->
+                <p></p>  <!-- description2 -->
+                <p></p>  <!-- description3 -->
+
+                <blockquote></blockquote> <!-- quote -->
+
+                <div class="about-buttons">
+                    <a href="#" class="btn">Unduh CV</a>
+                    <a href="#projek" class="btn btn-secondary">Lihat Proyek</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+  <!-- Skills Section -->
+<section id="keahlian" class="skills">
+    <div class="skills-container">
+        <h2>Keahlian</h2>
+        <div class="service-cards" id="skills-container">
+        </div>
+    </div>
+</section>
+
+ 
+<!-- Projects Section -->
+<section id="projek" class="projects">
+    <h2>Proyek</h2>
+    <div class="projects-grid" id="project-container">
+    </div>
+</section>
+
+    <!-- Certificates Section -->
+    <section id="sertifikat" class="certificates">
+        <h2>Sertifikat</h2>
+        <div class="certificates-grid" id="certificates-container">
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="kontak-saya" class="contact">
+        <h2>Kontak Saya</h2>
+        <div class="contact-container">
+            <div class="contact-info">
+                <p>Email: gigihlanangp@gmail.com</p>
+                <p>Telepon: +62 89 936 553 62</p>
+                <p>Alamat: Surabaya, Indonesia</p>
+            </div>
+            <form class="contact-form" id="contactForm">
+                <div class="form-group">
+                    <input type="text" id="name" name="name" placeholder="Nama Anda" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="email" name="email" placeholder="Email Anda" required>
+                </div>
+                <div class="form-group">
+                    <textarea id="message" name="message" placeholder="Pesan Anda" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn-submit">Kirim Pesan</button>
+            </form>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+    <script src="js/supabase.js"></script>
+    <script src="js/fetchProjects.js"></script>
+    <script src="js/fetchSkills.js"></script>
+    <script src="js/fetchCertificates.js"></script>
+    <script src="js/fetchAbout.js"></script>
+    <script src="js/contactForm.js"></script>
+    <Script src="js/fetchHero.js"></Script>
+    <script>
+document.addEventListener("keydown", (e) => {
+    if (e.shiftKey && e.key === "A") {
+        window.location.href = "admin/login.html";
+    }
+});
+</script>
+</body>
+</html>
