@@ -17,12 +17,13 @@ document.addEventListener("DOMContentLoaded", async () => {
         certContainer.innerHTML = "";
 
         data.forEach(cert => {
-            certContainer.innerHTML += `
-                <div class="certificate-card">
-                    <img src="${cert.image_url}" alt="${cert.title}" class="certificate-img">
-                    <p>${cert.title}</p>
-                </div>
-            `;
+           certContainer.innerHTML += `
+    <div class="certificate-card">
+        <img src="${cert.image_url}" alt="${cert.title}" class="certificate-img">
+        <div class="certificate-title">${cert.title}</div>
+    </div>
+`;
+
         });
 
     } catch (e) {

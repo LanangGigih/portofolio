@@ -929,6 +929,9 @@ blockquote {
     font-weight: 600;
     font-family: 'Poppins', sans-serif;
     cursor: pointer;
+    display: inline-block;     /* Supaya tidak melebar */
+    position: relative;        /* Agar tidak kena overlay efek .card::before */
+    z-index: 2;
     transition: background 0.3s ease;
 }
 
@@ -1015,8 +1018,9 @@ blockquote {
 
 .certificate-img {
     width: 100%;
-    height: 140px;
+    height: 100%;
     object-fit: cover;
+    transition: transform 0.3s ease;
 }
 
 .certificate-card p {
@@ -1025,6 +1029,39 @@ blockquote {
     color: #fff;
     font-size: 16px;
     font-weight: 600;
+    opacity: 0;                 /* sembunyikan awal */
+    transform: translateY(5px); /* sedikit turun */
+    transition: all 0.3s ease;
+}
+.certificate-card:hover p {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.certificate-title {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 12px 0;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.6);  /* semi transparan */
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+}
+
+/* saat hover: gambar naik sedikit, title muncul */
+.certificate-card:hover .certificate-img {
+    transform: scale(1.03);
+}
+
+.certificate-card:hover .certificate-title {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .contact {
