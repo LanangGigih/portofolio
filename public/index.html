@@ -162,27 +162,32 @@
     <script src="js/fetchHero.js"></script>
 
     <!-- Background Music Trigger -->
-   <script>
+  <script>
 const audio = document.getElementById('bg-music');
 audio.volume = 0.5;
-audio.loop = true; // penting!
+audio.loop = true; // musik akan terus loop
 
-// Pastikan audio siap
+let audioStarted = false; // flag untuk mencegah play berulang
+
+function startMusic() {
+    if (!audioStarted) {
+        audio.play().then(() => {
+            audioStarted = true;
+            console.log("Musik mulai (scroll atau klik pertama)");
+        }).catch(err => {
+            console.log("Gagal play:", err);
+        });
+    }
+}
+
+// Trigger hanya sekali, saat scroll pertama atau klik pertama
+window.addEventListener("scroll", startMusic, { once: true });
+window.addEventListener("click", startMusic, { once: true });
+
+// Debug: pastikan audio siap
 audio.addEventListener("canplaythrough", () => {
     console.log("Audio siap dan loop aktif");
 });
-
-// Mulai musik saat scroll pertama
-function startMusicOnScroll() {
-    audio.play().then(() => {
-        console.log("Musik mulai dengan scroll");
-        window.removeEventListener("scroll", startMusicOnScroll);
-    }).catch(err => {
-        console.log("Gagal play:", err);
-    });
-}
-
-window.addEventListener("scroll", startMusicOnScroll);
 </script>
 
 
