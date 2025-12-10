@@ -898,6 +898,15 @@ blockquote {
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
+.service-card i,
+.service-card img.skill-img {
+    font-size: 45px;
+    width: 45px;
+    height: 45px;
+    object-fit: contain;
+    margin: 0 auto 10px;
+}
+
 .project-card::before {
     content: '';
     position: absolute;

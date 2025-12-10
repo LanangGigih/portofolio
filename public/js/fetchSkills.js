@@ -16,9 +16,15 @@ document.addEventListener("DOMContentLoaded", async () => {
     skillsContainer.innerHTML = "";
 
     data.forEach(skill => {
+
+        // Cek apakah ada icon_url (gambar)
+        const iconElement = skill.icon_url && skill.icon_url.trim() !== ""
+            ? `<img src="${skill.icon_url}" alt="${skill.name}" class="skill-img" />`
+            : `<i class="${skill.icon}"></i>`;
+
         skillsContainer.innerHTML += `
             <div class="service-card">
-                <i class="${skill.icon}"></i>
+                ${iconElement}
                 <h3>${skill.name}</h3>
                 <p>${skill.description}</p>
             </div>
