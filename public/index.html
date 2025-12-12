@@ -102,10 +102,29 @@
     <!-- Skills -->
     <section id="keahlian" class="skills">
         <div class="skills-container">
-            <h2>Keahlian</h2>
+            <h2>Hard Skills</h2>
             <div class="service-cards" id="skills-container"></div>
         </div>
     </section>
+
+    <!-- Soft Skill Section -->
+<section id="softskills" class="soft-skills">
+    <div class="skills-container">
+        <h2>Soft Skills</h2>
+
+        <div class="soft-skill-wrapper">
+
+            <!-- Navigasi -->
+            <button class="soft-left-btn">&#10094;</button>
+            <button class="soft-right-btn">&#10095;</button>
+
+            <!-- Tempat JS memasukkan card dari Supabase -->
+            <div class="soft-skill-cards" id="soft-skills-container"></div>
+        </div>
+    </div>
+</section>
+
+
 
     <!-- Projects -->
     <section id="projek" class="projects">
@@ -160,6 +179,7 @@
     <script src="js/fetchAbout.js"></script>
     <script src="js/contactForm.js"></script>
     <script src="js/fetchHero.js"></script>
+    <script src="js/fetchSoftSkills.js"></script>
 
     <!-- Background Music Trigger -->
   <script>
@@ -199,6 +219,11 @@ audio.addEventListener("canplaythrough", () => {
             }
         });
     </script>
+<script>
+const softCards = document.querySelector('.soft-skill-cards');
+document.querySelector('.soft-left-btn').onclick = () => softCards.scrollBy({ left: -320, behavior: 'smooth' });
+document.querySelector('.soft-right-btn').onclick = () => softCards.scrollBy({ left: 320, behavior: 'smooth' });
+</script>
 
 </body>
 </html>
