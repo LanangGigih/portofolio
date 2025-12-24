@@ -1,3 +1,4 @@
+import { supabase } from './supabase.js'
 document.addEventListener("DOMContentLoaded", async () => {
     const skillsContainer = document.querySelector("#skills-container");
 

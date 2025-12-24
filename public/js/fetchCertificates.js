@@ -1,3 +1,6 @@
+import { supabase } from './supabase.js'
+
+
 document.addEventListener("DOMContentLoaded", async () => {
     const certContainer = document.querySelector(".certificates-grid");
 

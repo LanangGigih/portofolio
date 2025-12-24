@@ -1,3 +1,4 @@
+import { supabase } from './supabase.js'
 document.addEventListener("DOMContentLoaded", async () => {
     const container = document.querySelector("#soft-skills-container");
     if (!container) return;
@@ -19,42 +20,50 @@ document.addEventListener("DOMContentLoaded", async () => {
         return /^(https?:\/\/|data:|\/)/i.test(s);
     };
 
-    data.forEach(skill => {
-        const card = document.createElement("div");
-        card.className = "soft-card";
+   data.forEach(skill => {
+    const card = document.createElement("div");
+    card.className = "soft-card";
 
-        if (isUrl(skill.icon)) {
-            const img = document.createElement("img");
-            img.className = "skill-img";
-            img.src = skill.icon;
-            img.alt = skill.name;
+    /* ===== ICON WRAPPER (KUNCI) ===== */
+    const iconWrap = document.createElement("div");
+    iconWrap.className = "icon-wrap";
 
-            img.onerror = () => {
-                img.remove();
-                const fallback = document.createElement("i");
-                fallback.className = "fa-solid fa-circle-question skill-i-fallback";
-                fallback.setAttribute("aria-hidden", "true");
-                card.insertBefore(fallback, card.firstChild);
-            };
+    if (isUrl(skill.icon)) {
+        const img = document.createElement("img");
+        img.src = skill.icon;
+        img.alt = skill.name;
 
-            card.appendChild(img);
-        } else {
-            const i = document.createElement("i");
-            i.className = skill.icon + " skill-i";
-            i.setAttribute("aria-hidden", "true");
-            card.appendChild(i);
-        }
+        img.onerror = () => {
+            img.remove();
+            const fallback = document.createElement("i");
+            fallback.className = "fa-solid fa-circle-question";
+            fallback.setAttribute("aria-hidden", "true");
+            iconWrap.appendChild(fallback);
+        };
 
-        const h3 = document.createElement("h3");
-        h3.textContent = skill.name || "Untitled";
-        card.appendChild(h3);
+        iconWrap.appendChild(img);
+    } else {
+        const i = document.createElement("i");
+        i.className = skill.icon; // contoh: fa-solid fa-users
+        i.setAttribute("aria-hidden", "true");
+        iconWrap.appendChild(i);
+    }
 
-        const p = document.createElement("p");
-        p.textContent = skill.description || "";
-        card.appendChild(p);
+    card.appendChild(iconWrap);
 
-        container.appendChild(card);
-    });
+    /* ===== TITLE ===== */
+    const h3 = document.createElement("h3");
+    h3.textContent = skill.name || "Untitled";
+    card.appendChild(h3);
+
+    /* ===== DESCRIPTION ===== */
+    const p = document.createElement("p");
+    p.textContent = skill.description || "";
+    card.appendChild(p);
+
+    container.appendChild(card);
+});
+
 
     // tombol scroll
     const left = document.querySelector('.soft-left-btn');
